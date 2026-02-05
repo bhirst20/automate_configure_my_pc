@@ -1,6 +1,6 @@
-# install Software
+# Install software for gaming systems
 
-winget.exe install NexusMods.Vortex
-winget.exe install EpicGames.EpicGamesLauncher
-winget.exe install Valve.Steam
-winget.exe install Microsoft.VisualStudioCode
+& "$PSScriptRoot\apps\install_vortex.ps1"
+& "$PSScriptRoot\apps\install_epic_games.ps1"
+& "$PSScriptRoot\apps\install_steam.ps1"
+& "$PSScriptRoot\apps\install_vscode.ps1"

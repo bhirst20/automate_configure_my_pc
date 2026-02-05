@@ -1,6 +1,6 @@
-# install Software
+# Install software for development systems
 
-winget.exe install Docker.DockerDesktop
-winget.exe install Python.Python.3
-winget.exe install HeidiSQL.HeidiSQL
-winget.exe install WinSCP.WinSCP
+& "$PSScriptRoot\apps\install_docker_desktop.ps1"
+& "$PSScriptRoot\apps\install_python3.ps1"
+& "$PSScriptRoot\apps\install_heidisql.ps1"
+& "$PSScriptRoot\apps\install_winscp.ps1"

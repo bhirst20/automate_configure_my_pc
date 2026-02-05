@@ -1,5 +1,5 @@
-# install Software
+# Install software for video editing systems
 
-winget.exe install HandBrake.HandBrake
-winget.exe install CodecGuide.K-LiteCodecPack.Full
-winget.exe install Meltytech.Shotcut
+& "$PSScriptRoot\apps\install_handbrake.ps1"
+& "$PSScriptRoot\apps\install_klite_codec.ps1"
+& "$PSScriptRoot\apps\install_shotcut.ps1"

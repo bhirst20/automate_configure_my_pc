@@ -1,0 +1,1 @@
+winget.exe install TGRMNSoftware.BulkRenameUtility

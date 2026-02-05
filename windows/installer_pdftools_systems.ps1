@@ -1,51 +1,81 @@
-# install Software
+# Install software for PDF/document systems
 
-winget.exe install Notepad++.Notepad++
-winget.exe install NexusMods.Vortex
-winget.exe install 7zip.7zip
-winget.exe install Cisco.CiscoWebexMeetings
-winget.exe install Audacity.Audacity
-winget.exe install BlueMicrophones.BlueSherpa
-winget.exe install BraveSoftware.BraveBrowser
-winget.exe install TGRMNSoftware.BulkRenameUtility
-winget.exe install Piriform.CCleaner
-winget.exe install Discord.Discord
-winget.exe install Docker.DockerDesktop
-winget.exe install HandBrake.HandBrake
-winget.exe install HeidiSQL.HeidiSQL
-winget.exe install CodecGuide.K-LiteCodecPack.Full
-winget.exe install Logitech.LGS
-winget.exe install VentisMedia.MediaMonkey
-winget.exe install Microsoft.EdgeWebView2Runtime
-winget.exe install Microsoft.WindowsTerminal
-winget.exe install Notepad++.Notepad++
-winget.exe install RaspberryPiFoundation.RaspberryPiImager
-winget.exe install Meltytech.Shotcut
-winget.exe install TeamViewer.TeamViewer
-winget.exe install UnityTechnologies.Unity.2020
-winget.exe install VideoLAN.VLC
-winget.exe install WinDirStat.WinDirStat
-winget.exe install Balena.Etcher
-winget.exe install Heroku.HerokuCLI
-winget.exe install SlackTechnologies.Slack
-winget.exe install WinSCP.WinSCP
-winget.exe install Microsoft.VC++2013Redist-x64
-winget.exe install Corsair.iCUE.3
-winget.exe install Microsoft.VC++2008Redist-x86
-winget.exe install Microsoft.VC++2015-2019Redist-x86
-winget.exe install Microsoft.XNARedist
-winget.exe install PrivateInternetAccess.PrivateInternetAcc…
-winget.exe install Malwarebytes.Malwarebytes
-winget.exe install PuTTY.PuTTY
-winget.exe install EpicGames.EpicGamesLauncher
-winget.exe install OpenShot.OpenShot
-winget.exe install Cisco.WebexTeams
-winget.exe install IcecreamApps.PDFCandy
-winget.exe install Oracle.VirtualBox
-winget.exe install Microsoft.WindowsPCHealthCheck
-winget.exe install Nvidia.GeForceExperience
-winget.exe install Nvidia.PhysX
-winget.exe install Microsoft.UpdateAssistant
-winget.exe install Microsoft.VisualStudioCode
-winget.exe install UnityTechnologies.UnityHub
-winget.exe install Microsoft.PowerToys
+# Utilities
+& "$PSScriptRoot\apps\install_notepadpp.ps1"
+& "$PSScriptRoot\apps\install_7zip.ps1"
+& "$PSScriptRoot\apps\install_ccleaner.ps1"
+& "$PSScriptRoot\apps\install_bulk_rename.ps1"
+
+# Browsers
+& "$PSScriptRoot\apps\install_brave.ps1"
+
+# Communication
+& "$PSScriptRoot\apps\install_discord.ps1"
+& "$PSScriptRoot\apps\install_webex.ps1"
+
+# Audio
+& "$PSScriptRoot\apps\install_audacity.ps1"
+& "$PSScriptRoot\apps\install_blue_sherpa.ps1"
+
+# Development
+& "$PSScriptRoot\apps\install_docker_desktop.ps1"
+& "$PSScriptRoot\apps\install_heidisql.ps1"
+& "$PSScriptRoot\apps\install_heroku_cli.ps1"
+& "$PSScriptRoot\apps\install_winscp.ps1"
+& "$PSScriptRoot\apps\install_putty.ps1"
+& "$PSScriptRoot\apps\install_vscode.ps1"
+
+# Video/Media
+& "$PSScriptRoot\apps\install_handbrake.ps1"
+& "$PSScriptRoot\apps\install_klite_codec.ps1"
+& "$PSScriptRoot\apps\install_shotcut.ps1"
+& "$PSScriptRoot\apps\install_openshot.ps1"
+& "$PSScriptRoot\apps\install_vlc.ps1"
+& "$PSScriptRoot\apps\install_mediamonkey.ps1"
+
+# Peripherals
+& "$PSScriptRoot\apps\install_logitech_lgs.ps1"
+& "$PSScriptRoot\apps\install_corsair_icue.ps1"
+
+# Microsoft tools
+& "$PSScriptRoot\apps\install_windows_terminal.ps1"
+& "$PSScriptRoot\apps\install_edge_webview.ps1"
+& "$PSScriptRoot\apps\install_pc_health_check.ps1"
+& "$PSScriptRoot\apps\install_update_assistant.ps1"
+& "$PSScriptRoot\apps\install_powertoys.ps1"
+
+# Runtimes
+& "$PSScriptRoot\apps\install_vc_2008_redist.ps1"
+& "$PSScriptRoot\apps\install_vc_2013_redist.ps1"
+& "$PSScriptRoot\apps\install_vc_2015_2019_redist.ps1"
+& "$PSScriptRoot\apps\install_xna_redist.ps1"
+
+# Security
+& "$PSScriptRoot\apps\install_pia.ps1"
+& "$PSScriptRoot\apps\install_malwarebytes.ps1"
+
+# Gaming
+& "$PSScriptRoot\apps\install_vortex.ps1"
+& "$PSScriptRoot\apps\install_epic_games.ps1"
+& "$PSScriptRoot\apps\install_unity.ps1"
+& "$PSScriptRoot\apps\install_unity_hub.ps1"
+
+# Imaging/Virtualization
+& "$PSScriptRoot\apps\install_raspberry_pi_imager.ps1"
+& "$PSScriptRoot\apps\install_balena_etcher.ps1"
+& "$PSScriptRoot\apps\install_virtualbox.ps1"
+
+# Communication (additional)
+& "$PSScriptRoot\apps\install_slack.ps1"
+& "$PSScriptRoot\apps\install_teamviewer.ps1"
+& "$PSScriptRoot\apps\install_webex_teams.ps1"
+
+# PDF
+& "$PSScriptRoot\apps\install_pdf_candy.ps1"
+
+# GPU
+& "$PSScriptRoot\apps\install_nvidia_geforce.ps1"
+& "$PSScriptRoot\apps\install_nvidia_physx.ps1"
+
+# Disk utilities
+& "$PSScriptRoot\apps\install_windirstat.ps1"

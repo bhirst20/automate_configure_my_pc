@@ -1,3 +1,3 @@
-# install Software
+# Install software for work systems
 
-winget.exe install SlackTechnologies.Slack
+& "$PSScriptRoot\apps\install_slack.ps1"

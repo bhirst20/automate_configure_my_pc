@@ -1,0 +1,1 @@
+winget.exe install Microsoft.EdgeWebView2Runtime
