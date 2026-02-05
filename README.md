@@ -6,3 +6,11 @@ What follows in this repo are some automated scripts to help me when I configure
 
 - `nix/` - Bash scripts for Linux and macOS
 - `windows/` - PowerShell scripts using winget
+
+# Usage
+
+Checkout with the below command:
+
+```bash
+git clone https://github.com/bhirst20/automate_configure_my_pc.git
+```
