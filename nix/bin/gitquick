@@ -5,17 +5,6 @@
 #   Modes: debug (default), fix, syntax
 #   --claude: Use Claude instead of Fabric/Ollama
 
-MODE="${1:-debug}"
-USE_CLAUDE=false
-
-# Parse args
-for arg in "$@"; do
-    case $arg in
-        --claude) USE_CLAUDE=true ;;
-        debug|fix|syntax) MODE="$arg" ;;
-    esac
-done
-
 # Set theme based on mode
 case $MODE in
     debug)  THEME="debugging and testing changes" ;;
@@ -25,25 +14,7 @@ case $MODE in
 esac
 
 # Get changes since last push (or all staged/unstaged if no remote tracking)
-if git rev-parse @{u} >/dev/null 2>&1; then
-    DIFF=$(git diff @{u}..HEAD 2>/dev/null)
-    # If no commits ahead, get working directory changes
-    if [ -z "$DIFF" ]; then
-        DIFF=$(git diff HEAD 2>/dev/null)
-    fi
-else
-    DIFF=$(git diff HEAD 2>/dev/null)
-fi
-
-# Fallback to staged + unstaged
-if [ -z "$DIFF" ]; then
-    DIFF=$(git diff 2>/dev/null)
-fi
-
-if [ -z "$DIFF" ]; then
-    echo "No changes detected"
-    exit 1
-fi
+DIFF=$(git diff HEAD 2>/dev/null)
 
 # Build the prompt
 PROMPT="Generate a concise git commit message (max 72 chars for first line) for these changes.
@@ -54,22 +25,17 @@ Changes:
 $DIFF"
 
 # Generate commit message
-if [ "$USE_CLAUDE" = true ]; then
-    echo "Generating commit message with Claude..."
-    COMMIT_MSG=$(echo "$PROMPT" | claude --print 2>/dev/null)
-else
-    echo "Generating commit message with Fabric..."
-    COMMIT_MSG=$(echo "$PROMPT" | fabric --model llama3.2 2>/dev/null)
-fi
+echo "Generating commit message with Fabric..."
+COMMIT_MSG=$(echo "$PROMPT" | fabric --model mistral:latest --pattern summarize_pull-requests)
 
 # Fallback if AI fails
-if [ -z "$COMMIT_MSG" ] || [ $? -ne 0 ]; then
+if [ -z "$COMMIT_MSG" ]; then
     echo "AI generation failed, using default message"
     COMMIT_MSG="$MODE: quick changes"
 fi
 
 # Clean up the message (remove quotes, trim whitespace)
-COMMIT_MSG=$(echo "$COMMIT_MSG" | sed 's/^["'"'"']//;s/["'"'"']$//' | head -1 | xargs)
+COMMIT_MSG=$(echo "$COMMIT_MSG" | sed 's/^["'"'"']//;s/["'"'"']$//')
 
 echo ""
 echo "Commit message: $COMMIT_MSG"
